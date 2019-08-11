@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% comment %} <meta name="keywords" content="{{% palabras_claves %}}"> {% endcomment %}
+    {% comment %} <meta name="description" content="{{% descripcion %}}"> {% endcomment %}
+    <link rel="stylesheet" type="text/css" href="{% static 'vistaprevia/css/bootstrap.css' %}" >
+    <link rel="stylesheet" type="text/css" href="{% static 'vistaprevia/css/style.css' %}" >
+    <script type="text/javascript" src="{% static 'vistaprevia/js/jquery.js' %}"></script>
+    <script type="text/javascript" src="{% static 'vistaprevia/js/bootstrap.js' %}"></script>
+    <title>
+        {% block title %}
+            {% if page_title %}{{ page_title }} - {% endif %}{{ site_name }}
+        {% endblock %}
+    </title>
+</head>
+<body>
+    {%block contenedor %}{% endblock %}
+</body>
+</html>

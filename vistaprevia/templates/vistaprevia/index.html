@@ -1,12 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Patron MVC</title>
-</head>
-<body>
-    <h2>Bienvenido a {{ nombre_sitio }}.!</h2>
-</body>
-</html>
+{% extends 'vistaprevia/plantilla.html'%}
+{% block content %}
+    <h2>Bienvenido a {{ contenido.nombre_sitio }}.!</h2>
+    <hr>
+    {% if para_minorista.incremento == '10' %}
+        <h2>El incremento para minoristas es del {{para_minorista.incremento }}</h2>
+    {% elif para_minorista.incremento == '20' %}
+        <h2>El incremento para minoristas es del {{para_minorista.incremento }}</h2>
+    {% else %}
+        <h2>El incremento para minoristas es del {{para_minorista.incremento }}</h2>
+    {% endif %}
+{% endblock %}
