@@ -14,12 +14,12 @@ def index(request):
         'incremento': '25'
     }
     para_mayorista = {'tipo_usuario':'mayorista', 'incremento': '10'}
-    # page_title = "Titulo de Pagina"
-    # site_name = "Venta de Libros"
-    # palabras_clave = "Palabras clave"
-    # descripcion = "Descripcion"
+    page_title = "Pagina de inicio"
+    site_name = "Venta de Libros Online"
+    palabras_claves = "Palabras claves"
+    descripcion = "Descripción"
 
-    return render(request, 'vistaprevia/index.html', {'contenido':contenido, 'para_minorista':para_minorista, 'para_mayorista':para_mayorista})
+    return render(request, 'vistaprevia/index.html', {'contenido':contenido, 'para_minorista':para_minorista, 'para_mayorista':para_mayorista, 'page_title':page_title, 'site_name':site_name, 'palabras_claves':palabras_claves, 'descripcion':descripcion})
 
 def contacto(request):
     return render(request, 'vistaprevia/contacto.html')

@@ -1,4 +1,9 @@
 {% extends 'vistaprevia/plantilla.html'%}
+
+{%block title %}
+    {% if page_title %}{{ page_title }} - {% endif %}{{ site_name }}
+{% endblock %}
+
 {% block content %}
     <div class="container">
         <div class="jumbotron">
