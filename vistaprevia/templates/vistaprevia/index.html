@@ -24,3 +24,11 @@
         </div>
     </main>
 {% endblock %}
+
+{% block scripts %}
+    <script type="text/javascript">
+        $('a').click(function() {
+            alert("Estas por ir a otra pagina");
+        });
+    </script>
+{% endblock %}
