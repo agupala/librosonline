@@ -7,12 +7,12 @@ def publicar(modeladmin, request, queryset):
 
 
 class ProductoAdmin(admin.ModelAdmin):
-    fields = ['categoria', 'fecha_publicacion', 'producto', 'ruta_imagen', 'estado']
+    fields = ['fecha_publicacion', 'producto', 'ruta_imagen', 'estado', 'categoria']
     list_display = ['producto', 'fecha_publicacion', 'ruta_imagen', 'tipo_de_producto']
     ordering = ['-fecha_publicacion']
     list_filter = ('producto', 'fecha_publicacion')
     actions = [publicar]
     
 
-admin.site.register(Producto, ProductoAdmin)
 admin.site.register(Categoria)
+admin.site.register(Producto, ProductoAdmin)
