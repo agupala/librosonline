@@ -1,0 +1,33 @@
+{% extends 'vistaprevia/plantilla.html' %}
+{% load static %}
+{% load i18n %}
+{% block content %}
+    <div class="container">
+        <div class="jumbotron">
+            <h1>Agregar producto</h1>
+        </div>
+    </div>
+    <main class="container-fluid">
+        <div id="formulario" class="row justify-content-center">
+            <div class="col-xs-offset-1 col-xs-10 col-sm-10 col-md-8 col-12 ">
+                <hr>
+                <form action="{% url 'cargar' %}" method="post" enctype="multipart/form-data" id="contact" class="form-group col-xs-12 align-content-center">{% csrf_token %}
+                    {{ form.as_p }}
+                    <input type="submit" class="col-xs-offset-3 col-xs-6 btn btn-primary btn-block"></input>
+                </form>
+            </div>
+        </div>
+    </main>
+{% endblock  %}
+
+{% block scripts %}
+    <script type="text/javascript" src="{% static 'vistaprevia/js/jquery.js' %}"></script>
+    <script type="text/javascript" src="{% static 'vistaprevia/js/jquery-ui.js' %}"></script>
+    <script>
+        $(function() {
+            $("#id_fecha").datepicker({
+                inline: true
+            });
+        });
+    </script>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "vistaprevia/plantilla.html" %}
+{% block content %}
+    <div class="container">
+        <div class="jumbotron">
+            <h2>Ver Cada Imagen</h2>
+        </div>
+    </div>
+    <main class="container">
+        <div class="row" >
+            <section class="col-12" style=" padding:30px 30px 230px 30px">
+                <h1> El id de la imagen es: {{ producto.id }}</h1>
+                {% load staticfiles %}
+                <img src="/media/{{producto.ruta_imagen}}" alt="My image" width="20%"/>
+                <a href="{% url 'verimagenes' %}">Ver todas las imagenes</a>
+            </section>
+        </div>
+    </main>
+{% endblock %}
