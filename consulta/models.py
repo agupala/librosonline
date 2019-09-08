@@ -55,3 +55,4 @@ class Consulta(models.Model):
             force_update = False
             if self.id:
                 force_update = True
+            super(Respuesta, self).save(force_update=force_update)
