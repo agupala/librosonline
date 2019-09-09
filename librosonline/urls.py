@@ -23,5 +23,6 @@ urlpatterns = [
     path('vistaprevia/', include('vistaprevia.urls')),
     path('consulta/', include('consulta.urls')),
     path('admin/', admin.site.urls),
+    path('ckeditor/', include('ckeditor_uploader.urls')),
     # path('', include('vistaprevia.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -31,28 +31,28 @@ class Consulta(models.Model):
         elif self.estado_respuesta == 'En_Proceso':
             return format_html('<span style="color: #099;">{}</span>', self.estado_respuesta, )
 
-    class Respuesta(models.Model):
-        consulta = models.ForeignKey(Consulta, on_delete=models.PROTECT)
-        respuesta = models.TextField()
-        fecha = models.DateField(default=datetime.now, blank=True, editable=False)
+class Respuesta(models.Model):
+    consulta = models.ForeignKey(Consulta, on_delete=models.PROTECT)
+    respuesta = models.TextField()
+    fecha = models.DateField(default=datetime.now, blank=True, editable=False)
 
-        def create_mensaje(self):
-            subject = "Respuesta consulta - CIRSUB"
-            from_email="info@mutualcirsubgn.org"
-            destino=[self.consulta.mail]
-            mensaje_html = self.respuesta
-            #send_mail(subject, self.respuesta, from_email, destino, html_message=mensaje_html, fail_silently=False)
+    def create_mensaje(self):
+        subject = "Respuesta consulta - CIRSUB"
+        from_email="info@mutualcirsubgn.org"
+        destino=[self.consulta.mail]
+        mensaje_html = self.respuesta
+        #send_mail(subject, self.respuesta, from_email, destino, html_message=mensaje_html, fail_silently=False)
 
-            print(self.consulta.id)
-            consula_cambio_estado = Consulta.objects.get(id=self.consulta.id)
-            print(consula_cambio_estado)
-            print(consula_cambio_estado.estado_respuesta)
-            consula_cambio_estado.estado_respuesta = "Contestada"
-            consula_cambio_estado.save()
+        print(self.consulta.id)
+        consula_cambio_estado = Consulta.objects.get(id=self.consulta.id)
+        print(consula_cambio_estado)
+        print(consula_cambio_estado.estado_respuesta)
+        consula_cambio_estado.estado_respuesta = "Contestada"
+        consula_cambio_estado.save()
 
-        def save(self, *args, **kwargs):
-            self.create_mensaje()
-            force_update = False
-            if self.id:
-                force_update = True
-            super(Respuesta, self).save(force_update=force_update)
+    def save(self, *args, **kwargs):
+        self.create_mensaje()
+        force_update = False
+        if self.id:
+            force_update = True
+        super(Respuesta, self).save(force_update=force_update)

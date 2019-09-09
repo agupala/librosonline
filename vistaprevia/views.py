@@ -46,7 +46,7 @@ def cargar_imagen(request):
         form = CargarForm()
     return render(request, 'vistaprevia/formulario.html', {'form':form})
 
-def ver_imagen(request, producto_id):
+def ver_imagen(request, Producto, producto_id):
     try:
         producto = Producto.objects.get(pk=producto_id)
     except Producto.DoesNotExist:
@@ -57,7 +57,7 @@ def ver_imagen(request, producto_id):
     }, content_type=RequestContext(request))
 
 
-def ver_imagenes(request):
+def ver_imagenes(request, Producto):
     try:
         productos = Producto.objects.all()
     except Producto.DoesNotExist:
