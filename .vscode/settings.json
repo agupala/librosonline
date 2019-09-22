@@ -1,8 +1,9 @@
 {
     "python.pythonPath": "/home/agus/miniconda3/envs/py37/bin/python",
     "python.linting.pylintArgs": [
-        "--errors-only",
+        "--error-only",
         "--load-plugins",
         "pylint_django"
+
     ]
 }

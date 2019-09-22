@@ -7,6 +7,7 @@ from vistaprevia.forms import CargarForm
 from django.http import Http404
 from django.shortcuts import render_to_response
 from django.template import RequestContext
+from consulta import views as consulta_views
 
 # Create your views here.
 

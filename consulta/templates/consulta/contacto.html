@@ -1,0 +1,33 @@
+{% extends "vistaprevia/plantilla.html" %}
+{% load static %}
+{% load i18n %}
+{% block content %}
+    <div class="container">
+        <div class="jumbotron">
+            <h1>Pagina de Contacto</h1>
+        </div>
+    </div>
+    <main class="container-fluid">
+        <div id="formulario_contacto" class="row">
+            <div class="col-xs-offset-1 col-xs-10 col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
+                <h2>Contacto</h2>
+                <hr>
+                <form method="post" action="{% url 'consultaresp' %}" class="col-xs-12" id="contact">{% csrf_token %}
+                    <div class="col-xs-12">
+                        <label for="id_nombre">Nombre y Apellido</label>
+                        <input type="text" id="id_nombre" name="nombre">
+                    </div>
+                    <div class="col-xs-12">
+                        <label for="id_mail">Email</label>
+                        <input type="text" id="id_mail" name="mail">
+                    </div>
+                    <div class="col-xs-12">
+                        <label for="id_descripcion">Descripcion</label>
+                        <textarea id="id_descripcion" name="descripcion"></textarea>
+                    </div>
+                    <button type="submit" class="col-xs-offset-3 col-xs-6 btn btn-default btn-form btn-primary">Enviar</button>
+                </form>
+            </div>
+        </div>
+    </main>
+{% endblock content %}
